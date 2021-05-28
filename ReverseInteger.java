@@ -1,22 +1,11 @@
-class ReverseInteger {
-    // public int reverse(int x) {
-    // String a = String.valueOf(x);
-    // String b = "";
-    // for(int i = 0; i < a.length(); i++){
-    // b += a.charAt(a.length() - i - 1);
-    // }
-    // if(x<0)
-    // b = "-" + b;
-    // return Integer.parseInt(b);
-    // }
+/**
+ * This problem has been solved. Finish: 28 May 2021.
+ **/
 
-    /**
-     * I only have one edge case left that I am unable to handle. If the reversed
-     * number is larger than the possible values of the int datatype then I must
-     * return 0;
-     */
+class ReverseInteger {
     public int reverse(int x) {
-        int reversedNum = 0;
+
+        long reversedNum = 0;
 
         while (x != 0) {
             reversedNum *= 10;
@@ -24,11 +13,17 @@ class ReverseInteger {
             x /= 10;
         }
 
-        return reversedNum;
+        if( reversedNum >= Integer.MAX_VALUE || reversedNum <= Integer.MIN_VALUE){
+            return 0;
+        }
+        else 
+            return (int) reversedNum;
     }
 
     public static void main(String[] args) {
         ReverseInteger r = new ReverseInteger();
-        System.out.println(r.reverse(-123456789));
+        System.out.println(r.reverse(1534236469));
     }
+
+
 }
